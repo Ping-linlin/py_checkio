@@ -1,0 +1,29 @@
+def long_repeat(line):
+    """
+        length the longest substring that consists of the same char
+    """
+    # your code here
+    linelong = len(line)
+    if linelong:
+        mx = 1
+        temp = 1
+        for i in range(linelong-1):
+    
+            if line[i] == line[i+1]:
+                temp += 1
+            elif temp > mx:
+                mx = temp
+                temp = 1
+            else:
+                temp = 1
+        if temp > mx:
+            mx = temp
+        return mx
+    else:
+        return 0
+
+if __name__ == '__main__':
+    #These "asserts" using only for self-checking and not necessary for auto-testing
+    assert long_repeat('sdsffffse') == 4, "First"
+    assert long_repeat('ddvvrwwwrggg') == 3, "Second"
+    print('"Run" is good. How is "Check"?')
